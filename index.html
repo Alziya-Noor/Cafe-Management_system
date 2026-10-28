@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>CafeBrew</h2>
+                <p>Brew Your Mind</p>
+            </div>
+
+            <div class="sidebar-nav">
+                <a href="#view-dashboard" class="nav-link active" data-view="dashboard">Dashboard</a>
+                <a href="#view-tables" class="nav-link" data-view="tables">Tables</a>
+                <a href="#view-orders" class="nav-link" data-view="orders">Orders</a>
+                <a href="#view-menu" class="nav-link" data-view="menu">Menu</a>
+                <!-- <a href="#billing" class="nav-link" data-view="billing">Billing</a>
+                <a href="#revenue" class="nav-link" data-view="revenue">Revenue</a> -->
+            </div>
+
+            <footer>
+                <p>Fresh Coffee, Happy Customers</p>
+            </footer>
+        </aside>
+
+        <!-- main Section -->
+         <main class="main">
+             
+             <section id="view-dashboard" class="view active">
+                    <header class="view-head">
+                        <h1>Dashboard</h1>
+                        <p>Welcome to your cafe workspace</p>
+                    </header>
+                    <div class="add-clock">
+                        <span id="clock">--:--</span>
+                        <span id="today-date">—</span>
+                    </div>
+
+                <div class="welcome-card">
+                    <h2>Welcome</h2>
+                    <p>Manage Your Orders and Bills at one place!</p>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <span class="stat-label">Open Orders</span>
+                        <span  class="stat-value" id="stat-open-orders">0</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">Tables Occupied</span>
+                        <span class="stat-value" id="stat-tables-occupied">0/10</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">Revenue Today</span>
+                        <span class="stat-value" id="stat-revenue">0$</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">Orders Served</span>
+                        <span class="stat-value" id="stat-orders-served">0</span>
+                    </div>
+                </div>
+            </section> 
+
+            <!-- Tables Section -->
+
+            <section id="view-tables" class="view">
+                <header class="view-head">
+                    <h1>Tables</h1>
+                    <p>Tap a table to seat guests, start an order, or free it up.</p>
+                </header>
+                <div class="table-grid" id="tables-grid">
+                        <div class="table-card">
+                            <span class="table-name">1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">Bar 1</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        <div class="table-card">
+                            <span class="table-name">Bar 2</span>
+                            <span class="table-seats">2 seats</span>
+                            <span class="table-status">Available</span>
+                        </div>
+                        
+            </div>
+            </section>
+
+            <!-- Orders -->
+
+            <section id="view-orders" class="view">
+                <header class="view-head">
+                    <h1>Orders</h1>
+                    <p>Build a new Order or move an existing one along</p>
+                </header>
+
+                <div class="order-layout">
+                    <div class="order-builder">
+                        <h2>New Order</h2>
+                        <label class="field">
+                            <span>Table</span>
+                            <select id="oder-table"></select>
+                        </label>
+
+                        <div class="menu-picker"></div>
+
+                        <div class="order-ticket" id="order-ticket"></div>
+                        <p class="empty-note">No items added yet.</p>
+
+                        <div class="ticket-total">
+                            <span>Total</span>
+                            <strong id="order-total">$0.00/-</strong>
+                        </div>
+
+                        <button class="submit">Send to Kitchen</button>
+                    </div>
+
+                    <div class="panel order-queue">
+                    <h2>Active orders</h2>
+                    <div id="active-orders" class="order-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Section -->
+
+            <section id="view-menu" class="view">
+                <header class="view-head">
+                    <h1>Menu</h1>
+                    <p>Add, price and retire items without touching the register.</p>
+                </header>
+
+                <form  class="panel-menu-form" >
+                    <label class="field">
+                        <h2>Add an Item</h2>
+                        <input type="text" id="item-name" placeholder="Cinnomon Latte">
+                    </label>
+
+                    <label class="field">
+                        <span>Category</span>
+                        <select  id="item-category">
+                            <option>Coffee</option>
+                            <option>Tea</option>
+                            <option>Pastry</option>
+                            <option>Food</option> 
+                        </select>
+                    </label>
+
+                    <label class="field">
+                        <span>Price</span>
+                        <input type="number"  id="item-price" min="0.25" step="0.25" placeholder="4.50" required>
+                    </label>
+                    <button type="submit" class="submit">Add to menu!</button>
+                </form>
+
+                <div class="menu-list-panel">
+                    <h2>Current Menu</h2>
+                    <div class="menu-items" id="menu-list"></div>
+                </div>
+            </section>
+
+            <!-- Billing Section -->
+             <section id="billing" class="view">
+                <header class="view-head">
+                    <h1>Billing</h1>
+                    <p>Close out served orders and keep a record of the day's receipts.</p>
+                </header>
+
+                <div class="dash-column">
+                    <div class="panel">
+                        <h2>Ready to settle</h2>
+                        <div id="ready-to-bill" class="order-list"></div>
+
+                    <div class="panel">
+                        <h2>Reciepts Today</h2>
+                        <div id="receipts" class="plain-list"></div>
+                    </div>
+                    </div>
+                </div>
+             </section>
+         </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+</body>
+</html>
